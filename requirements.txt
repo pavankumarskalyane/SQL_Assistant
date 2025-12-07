@@ -17,7 +17,7 @@ pymupdf
 # -------- Environment Variables --------
 python-dotenv
 
-# -------- LLM (Gemini) ✅ MISSING FIXED --------
+# -------- LLM (Gemini) 
 google-generativeai
 
 # -------- API & Server --------
