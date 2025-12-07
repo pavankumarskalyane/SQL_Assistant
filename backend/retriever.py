@@ -3,7 +3,7 @@
 from langchain_community.vectorstores import Chroma
 from langchain_community.embeddings import SentenceTransformerEmbeddings
 
-CHROMA_PATH = "chroma"
+CHROMA_PATH = "/data/chroma"
 
 
 class SQLRetriever:
