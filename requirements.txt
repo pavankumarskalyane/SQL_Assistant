@@ -1,31 +1,18 @@
-# -------- LangChain Core --------
-langchain
-langchain-core
-langchain-community
-
-# -------- Vector DB --------
-chromadb
-faiss-cpu
-
-# -------- Embeddings --------
-sentence-transformers
-
-# -------- PDF/Text Processing --------
-pypdf
-pymupdf
-
-# -------- Environment Variables --------
-python-dotenv
-
-# -------- LLM (Gemini) 
-google-generativeai
-
-# -------- API & Server --------
 fastapi
 uvicorn
 
-# -------- Search (Optional) --------
-typesense
+langchain
+langchain-core
+langchain-community
+langchain-huggingface
 
-# -------- Graph / RAG Pipelines --------
-langgraph
+chromadb
+sentence-transformers
+
+python-dotenv
+google-generativeai
+
+pydantic
+
+httpx
+tqdm
