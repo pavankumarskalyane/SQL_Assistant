@@ -1,0 +1,120 @@
+{"id": "1", "wrong_query": "SELEC name FROM users", "correct_query": "SELECT name FROM users;"}
+{"id": "2", "wrong_query": "SELECT FROM users", "correct_query": "SELECT * FROM users;"}
+{"id": "3", "wrong_query": "SELECT name age FROM users", "correct_query": "SELECT name, age FROM users;"}
+{"id": "4", "wrong_query": "SELECT DISTINCT FROM users", "correct_query": "SELECT DISTINCT name FROM users;"}
+{"id": "5", "wrong_query": "SELECT * FROM users WHERE", "correct_query": "SELECT * FROM users WHERE id = 1;"}
+{"id": "6", "wrong_query": "SELECT * FROM users WHERE age == 25", "correct_query": "SELECT * FROM users WHERE age = 25;"}
+{"id": "7", "wrong_query": "SELECT * FROM users WHERE name LIKE John", "correct_query": "SELECT * FROM users WHERE name LIKE 'John';"}
+{"id": "8", "wrong_query": "INSERT INTO users VALUES (1 'A')", "correct_query": "INSERT INTO users VALUES (1, 'A');"}
+{"id": "9", "wrong_query": "INSERT users (id, name) VALUES (1, 'A')", "correct_query": "INSERT INTO users (id, name) VALUES (1, 'A');"}
+{"id": "10", "wrong_query": "INSERT INTO users id, name VALUES (1, 'A')", "correct_query": "INSERT INTO users (id, name) VALUES (1, 'A');"}
+{"id": "11", "wrong_query": "UPDATE users name='X'", "correct_query": "UPDATE users SET name = 'X';"}
+{"id": "12", "wrong_query": "UPDATE users SET WHERE id=1", "correct_query": "UPDATE users SET name = 'X' WHERE id = 1;"}
+{"id": "13", "wrong_query": "DELETE users WHERE id=1", "correct_query": "DELETE FROM users WHERE id = 1;"}
+{"id": "14", "wrong_query": "DELETE FROM WHERE id=1", "correct_query": "DELETE FROM users WHERE id = 1;"}
+{"id": "15", "wrong_query": "SELECT * FROM A JOIN B", "correct_query": "SELECT * FROM A JOIN B ON A.id = B.id;"}
+{"id": "16", "wrong_query": "SELECT * FROM A INNER B ON A.id=B.id", "correct_query": "SELECT * FROM A INNER JOIN B ON A.id = B.id;"}
+{"id": "17", "wrong_query": "SELECT * FROM A LEFT B ON A.id=B.id", "correct_query": "SELECT * FROM A LEFT JOIN B ON A.id = B.id;"}
+{"id": "18", "wrong_query": "SELECT department, COUNT(*) FROM employees", "correct_query": "SELECT department, COUNT(*) FROM employees GROUP BY department;"}
+{"id": "19", "wrong_query": "SELECT department SUM(salary) FROM employees GROUP BY department", "correct_query": "SELECT department, SUM(salary) FROM employees GROUP BY department;"}
+{"id": "20", "wrong_query": "SELECT department, COUNT(*) FROM employees HAVING COUNT(*) > 2", "correct_query": "SELECT department, COUNT(*) FROM employees GROUP BY department HAVING COUNT(*) > 2;"}
+{"id": "21", "wrong_query": "SELECT * FROM users ORDER users", "correct_query": "SELECT * FROM users ORDER BY name;"}
+{"id": "22", "wrong_query": "SELECT * FROM users ORDER BY", "correct_query": "SELECT * FROM users ORDER BY name;"}
+{"id": "23", "wrong_query": "SELECT * FROM users LIMIT", "correct_query": "SELECT * FROM users LIMIT 10;"}
+{"id": "24", "wrong_query": "SELECT * FROM users LIMIT twenty", "correct_query": "SELECT * FROM users LIMIT 20;"}
+{"id": "25", "wrong_query": "SELECT * FROM users WHERE id IN SELECT id FROM orders", "correct_query": "SELECT * FROM users WHERE id IN (SELECT id FROM orders);"}
+{"id": "26", "wrong_query": "SELECT name AS FROM users", "correct_query": "SELECT name AS username FROM users;"}
+{"id": "27", "wrong_query": "SELECT UPPER name FROM users", "correct_query": "SELECT UPPER(name) FROM users;"}
+{"id": "28", "wrong_query": "SELECT COUNT FROM users", "correct_query": "SELECT COUNT(*) FROM users;"}
+{"id": "29", "wrong_query": "CREATE INDEX ON users(name)", "correct_query": "CREATE INDEX idx_name ON users(name);"}
+{"id": "30", "wrong_query": "CREATE TABLE users id INT, name VARCHAR(100)", "correct_query": "CREATE TABLE users (id INT, name VARCHAR(100));"}
+{"id": "31", "wrong_query": "CREATE TABLE (id INT)", "correct_query": "CREATE TABLE users (id INT);"}
+{"id": "32", "wrong_query": "DROP users", "correct_query": "DROP TABLE users;"}
+{"id": "33", "wrong_query": "ALTER users ADD age INT", "correct_query": "ALTER TABLE users ADD age INT;"}
+{"id": "34", "wrong_query": "ALTER TABLE users age INT", "correct_query": "ALTER TABLE users ADD age INT;"}
+{"id": "35", "wrong_query": "SELECT * FROM users WHERE age BETWEEN 10 AND", "correct_query": "SELECT * FROM users WHERE age BETWEEN 10 AND 20;"}
+{"id": "36", "wrong_query": "SELECT * FROM users WHERE id IN 1,2,3", "correct_query": "SELECT * FROM users WHERE id IN (1,2,3);"}
+{"id": "37", "wrong_query": "SELECT * FROM users WHERE name = NULL", "correct_query": "SELECT * FROM users WHERE name IS NULL;"}
+{"id": "38", "wrong_query": "SELECT * FROM users WHERE EXISTS SELECT 1 FROM orders", "correct_query": "SELECT * FROM users WHERE EXISTS (SELECT 1 FROM orders);"}
+{"id": "39", "wrong_query": "TRUNCATE users", "correct_query": "TRUNCATE TABLE users;"}
+{"id": "40", "wrong_query": "CREATE VIEW v1 SELECT * FROM users", "correct_query": "CREATE VIEW v1 AS SELECT * FROM users;"}
+{"id": "41", "wrong_query": "SELECT * FROM orders WHERE order_date='2025-15-01'", "correct_query": "SELECT * FROM orders WHERE order_date='2025-12-01';"}
+{"id": "42", "wrong_query": "SELEC name FROM users", "correct_query": "SELECT name FROM users;"}
+{"id": "43", "wrong_query": "SELECT FROM users", "correct_query": "SELECT * FROM users;"}
+{"id": "44", "wrong_query": "SELECT name age FROM users", "correct_query": "SELECT name, age FROM users;"}
+{"id": "45", "wrong_query": "SELECT DISTINCT FROM users", "correct_query": "SELECT DISTINCT name FROM users;"}
+{"id": "46", "wrong_query": "SELECT * FROM users WHERE", "correct_query": "SELECT * FROM users WHERE id = 1;"}
+{"id": "47", "wrong_query": "SELECT * FROM users WHERE age == 25", "correct_query": "SELECT * FROM users WHERE age = 25;"}
+{"id": "48", "wrong_query": "SELECT * FROM users WHERE name LIKE John", "correct_query": "SELECT * FROM users WHERE name LIKE 'John';"}
+{"id": "49", "wrong_query": "INSERT INTO users VALUES (1 'A')", "correct_query": "INSERT INTO users VALUES (1, 'A');"}
+{"id": "50", "wrong_query": "INSERT users (id, name) VALUES (1, 'A')", "correct_query": "INSERT INTO users (id, name) VALUES (1, 'A');"}
+{"id": "51", "wrong_query": "INSERT INTO users id, name VALUES (1, 'A')", "correct_query": "INSERT INTO users (id, name) VALUES (1, 'A');"}
+{"id": "52", "wrong_query": "UPDATE users name='X'", "correct_query": "UPDATE users SET name = 'X';"}
+{"id": "53", "wrong_query": "UPDATE users SET WHERE id=1", "correct_query": "UPDATE users SET name = 'X' WHERE id = 1;"}
+{"id": "54", "wrong_query": "DELETE users WHERE id=1", "correct_query": "DELETE FROM users WHERE id = 1;"}
+{"id": "55", "wrong_query": "DELETE FROM WHERE id=1", "correct_query": "DELETE FROM users WHERE id = 1;"}
+{"id": "56", "wrong_query": "SELECT * FROM A JOIN B", "correct_query": "SELECT * FROM A JOIN B ON A.id = B.id;"}
+{"id": "57", "wrong_query": "SELECT * FROM A INNER B ON A.id=B.id", "correct_query": "SELECT * FROM A INNER JOIN B ON A.id = B.id;"}
+{"id": "58", "wrong_query": "SELECT * FROM A LEFT B ON A.id=B.id", "correct_query": "SELECT * FROM A LEFT JOIN B ON A.id = B.id;"}
+{"id": "59", "wrong_query": "SELECT department, COUNT(*) FROM employees", "correct_query": "SELECT department, COUNT(*) FROM employees GROUP BY department;"}
+{"id": "60", "wrong_query": "SELECT department SUM(salary) FROM employees GROUP BY department", "correct_query": "SELECT department, SUM(salary) FROM employees GROUP BY department;"}
+{"id": "61", "wrong_query": "SELECT department, COUNT(*) FROM employees HAVING COUNT(*) > 2", "correct_query": "SELECT department, COUNT(*) FROM employees GROUP BY department HAVING COUNT(*) > 2;"}
+{"id": "62", "wrong_query": "SELECT * FROM users ORDER users", "correct_query": "SELECT * FROM users ORDER BY name;"}
+{"id": "63", "wrong_query": "SELECT * FROM users ORDER BY", "correct_query": "SELECT * FROM users ORDER BY name;"}
+{"id": "64", "wrong_query": "SELECT * FROM users LIMIT", "correct_query": "SELECT * FROM users LIMIT 10;"}
+{"id": "65", "wrong_query": "SELECT * FROM users LIMIT twenty", "correct_query": "SELECT * FROM users LIMIT 20;"}
+{"id": "66", "wrong_query": "SELECT * FROM users WHERE id IN SELECT id FROM orders", "correct_query": "SELECT * FROM users WHERE id IN (SELECT id FROM orders);"}
+{"id": "67", "wrong_query": "SELECT name AS FROM users", "correct_query": "SELECT name AS username FROM users;"}
+{"id": "68", "wrong_query": "SELECT UPPER name FROM users", "correct_query": "SELECT UPPER(name) FROM users;"}
+{"id": "69", "wrong_query": "SELECT COUNT FROM users", "correct_query": "SELECT COUNT(*) FROM users;"}
+{"id": "70", "wrong_query": "CREATE INDEX ON users(name)", "correct_query": "CREATE INDEX idx_name ON users(name);"}
+{"id": "71", "wrong_query": "CREATE TABLE users id INT, name VARCHAR(100)", "correct_query": "CREATE TABLE users (id INT, name VARCHAR(100));"}
+{"id": "72", "wrong_query": "CREATE TABLE (id INT)", "correct_query": "CREATE TABLE users (id INT);"}
+{"id": "73", "wrong_query": "DROP users", "correct_query": "DROP TABLE users;"}
+{"id": "74", "wrong_query": "ALTER users ADD age INT", "correct_query": "ALTER TABLE users ADD age INT;"}
+{"id": "75", "wrong_query": "ALTER TABLE users age INT", "correct_query": "ALTER TABLE users ADD age INT;"}
+{"id": "76", "wrong_query": "SELECT * FROM users WHERE age BETWEEN 10 AND", "correct_query": "SELECT * FROM users WHERE age BETWEEN 10 AND 20;"}
+{"id": "77", "wrong_query": "SELECT * FROM users WHERE id IN 1,2,3", "correct_query": "SELECT * FROM users WHERE id IN (1,2,3);"}
+{"id": "78", "wrong_query": "SELECT * FROM users WHERE name = NULL", "correct_query": "SELECT * FROM users WHERE name IS NULL;"}
+{"id": "79", "wrong_query": "SELECT * FROM users WHERE EXISTS SELECT 1 FROM orders", "correct_query": "SELECT * FROM users WHERE EXISTS (SELECT 1 FROM orders);"}
+{"id": "80", "wrong_query": "TRUNCATE users", "correct_query": "TRUNCATE TABLE users;"}
+{"id": "81", "wrong_query": "CREATE VIEW v1 SELECT * FROM users", "correct_query": "CREATE VIEW v1 AS SELECT * FROM users;"}
+{"id": "82", "wrong_query": "SELECT * FROM orders WHERE order_date='2025-15-01'", "correct_query": "SELECT * FROM orders WHERE order_date='2025-12-01';"}
+{"id": "83", "wrong_query": "SELEC name FROM users", "correct_query": "SELECT name FROM users;"}
+{"id": "84", "wrong_query": "SELECT FROM users", "correct_query": "SELECT * FROM users;"}
+{"id": "85", "wrong_query": "SELECT name age FROM users", "correct_query": "SELECT name, age FROM users;"}
+{"id": "86", "wrong_query": "SELECT DISTINCT FROM users", "correct_query": "SELECT DISTINCT name FROM users;"}
+{"id": "87", "wrong_query": "SELECT * FROM users WHERE", "correct_query": "SELECT * FROM users WHERE id = 1;"}
+{"id": "88", "wrong_query": "SELECT * FROM users WHERE age == 25", "correct_query": "SELECT * FROM users WHERE age = 25;"}
+{"id": "89", "wrong_query": "SELECT * FROM users WHERE name LIKE John", "correct_query": "SELECT * FROM users WHERE name LIKE 'John';"}
+{"id": "90", "wrong_query": "INSERT INTO users VALUES (1 'A')", "correct_query": "INSERT INTO users VALUES (1, 'A');"}
+{"id": "91", "wrong_query": "INSERT users (id, name) VALUES (1, 'A')", "correct_query": "INSERT INTO users (id, name) VALUES (1, 'A');"}
+{"id": "92", "wrong_query": "INSERT INTO users id, name VALUES (1, 'A')", "correct_query": "INSERT INTO users (id, name) VALUES (1, 'A');"}
+{"id": "93", "wrong_query": "UPDATE users name='X'", "correct_query": "UPDATE users SET name = 'X';"}
+{"id": "94", "wrong_query": "UPDATE users SET WHERE id=1", "correct_query": "UPDATE users SET name = 'X' WHERE id = 1;"}
+{"id": "95", "wrong_query": "DELETE users WHERE id=1", "correct_query": "DELETE FROM users WHERE id = 1;"}
+{"id": "96", "wrong_query": "DELETE FROM WHERE id=1", "correct_query": "DELETE FROM users WHERE id = 1;"}
+{"id": "97", "wrong_query": "SELECT * FROM A JOIN B", "correct_query": "SELECT * FROM A JOIN B ON A.id = B.id;"}
+{"id": "98", "wrong_query": "SELECT * FROM A INNER B ON A.id=B.id", "correct_query": "SELECT * FROM A INNER JOIN B ON A.id = B.id;"}
+{"id": "99", "wrong_query": "SELECT * FROM A LEFT B ON A.id=B.id", "correct_query": "SELECT * FROM A LEFT JOIN B ON A.id = B.id;"}
+{"id": "100", "wrong_query": "SELECT department, COUNT(*) FROM employees", "correct_query": "SELECT department, COUNT(*) FROM employees GROUP BY department;"}
+{"id": "101", "wrong_query": "SELECT department SUM(salary) FROM employees GROUP BY department", "correct_query": "SELECT department, SUM(salary) FROM employees GROUP BY department;"}
+{"id": "102", "wrong_query": "SELECT department, COUNT(*) FROM employees HAVING COUNT(*) > 2", "correct_query": "SELECT department, COUNT(*) FROM employees GROUP BY department HAVING COUNT(*) > 2;"}
+{"id": "103", "wrong_query": "SELECT * FROM users ORDER users", "correct_query": "SELECT * FROM users ORDER BY name;"}
+{"id": "104", "wrong_query": "SELECT * FROM users ORDER BY", "correct_query": "SELECT * FROM users ORDER BY name;"}
+{"id": "105", "wrong_query": "SELECT * FROM users LIMIT", "correct_query": "SELECT * FROM users LIMIT 10;"}
+{"id": "106", "wrong_query": "SELECT * FROM users LIMIT twenty", "correct_query": "SELECT * FROM users LIMIT 20;"}
+{"id": "107", "wrong_query": "SELECT * FROM users WHERE id IN SELECT id FROM orders", "correct_query": "SELECT * FROM users WHERE id IN (SELECT id FROM orders);"}
+{"id": "108", "wrong_query": "SELECT name AS FROM users", "correct_query": "SELECT name AS username FROM users;"}
+{"id": "109", "wrong_query": "SELECT UPPER name FROM users", "correct_query": "SELECT UPPER(name) FROM users;"}
+{"id": "110", "wrong_query": "SELECT COUNT FROM users", "correct_query": "SELECT COUNT(*) FROM users;"}
+{"id": "111", "wrong_query": "CREATE INDEX ON users(name)", "correct_query": "CREATE INDEX idx_name ON users(name);"}
+{"id": "112", "wrong_query": "CREATE TABLE users id INT, name VARCHAR(100)", "correct_query": "CREATE TABLE users (id INT, name VARCHAR(100));"}
+{"id": "113", "wrong_query": "CREATE TABLE (id INT)", "correct_query": "CREATE TABLE users (id INT);"}
+{"id": "114", "wrong_query": "DROP users", "correct_query": "DROP TABLE users;"}
+{"id": "115", "wrong_query": "ALTER users ADD age INT", "correct_query": "ALTER TABLE users ADD age INT;"}
+{"id": "116", "wrong_query": "ALTER TABLE users age INT", "correct_query": "ALTER TABLE users ADD age INT;"}
+{"id": "117", "wrong_query": "SELECT * FROM users WHERE age BETWEEN 10 AND", "correct_query": "SELECT * FROM users WHERE age BETWEEN 10 AND 20;"}
+{"id": "118", "wrong_query": "SELECT * FROM users WHERE id IN 1,2,3", "correct_query": "SELECT * FROM users WHERE id IN (1,2,3);"}
+{"id": "119", "wrong_query": "SELECT * FROM users WHERE name = NULL", "correct_query": "SELECT * FROM users WHERE name IS NULL;"}
+{"id": "120", "wrong_query": "SELECT * FROM users WHERE EXISTS SELECT 1 FROM orders", "correct_query": "SELECT * FROM users WHERE EXISTS (SELECT 1 FROM orders);"}

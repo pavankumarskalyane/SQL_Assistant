@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SQL Assistant</title>
+    <style>
+        body {
+            margin: 0;
+            background: #0f172a;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: 80px auto;
+            background: #020617;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.5);
+        }
+
+        h1 {
+            text-align: center;
+            color: #38bdf8;
+        }
+
+        textarea {
+            width: 100%;
+            height: 120px;
+            padding: 12px;
+            border-radius: 6px;
+            border: none;
+            outline: none;
+            font-size: 16px;
+            margin-top: 15px;
+        }
+
+        button {
+            width: 100%;
+            margin-top: 15px;
+            padding: 12px;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            background: #2563eb;
+            color: white;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #1d4ed8;
+        }
+
+        .result {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 10px;
+            background: #020617;
+            border: 1px solid #334155;
+        }
+
+        .code {
+            background: black;
+            color: #00ff9c;
+            padding: 10px;
+            border-radius: 6px;
+            margin-top: 5px;
+            white-space: pre-wrap;
+        }
+
+        .loading {
+            color: yellow;
+            margin-top: 10px;
+        }
+
+        .error {
+            color: red;
+            margin-top: 10px;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1> SQL Assistant</h1>
+
+    <textarea id="query" placeholder="Enter wrong SQL query here..."></textarea>
+
+    <button onclick="correctSQL()">Correct SQL</button>
+
+    <div id="status"></div>
+    <div id="result"></div>
+</div>
+
+<script>
+async function correctSQL() {
+    const query = document.getElementById("query").value;
+    const resultDiv = document.getElementById("result");
+    const statusDiv = document.getElementById("status");
+
+    resultDiv.innerHTML = "";
+    statusDiv.innerHTML = "";
+
+    if (!query.trim()) {
+        statusDiv.innerHTML = "<p class='error'>Please enter a SQL query</p>";
+        return;
+    }
+
+    statusDiv.innerHTML = "<p class='loading'>Processing...</p>";
+
+    try {
+        const response = await fetch("http://127.0.0.1:8000/correct-sql", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ query })
+        });
+
+        const data = await response.json();
+
+        statusDiv.innerHTML = "";
+
+        resultDiv.innerHTML = `
+            <div class="result">
+                <p><b>Source:</b> ${data.source}</p>
+                <p><b>Confidence:</b> ${data.confidence}</p>
+                <p><b>Correct SQL:</b></p>
+                <div class="code">${data.answer}</div>
+            </div>
+        `;
+    }
+    catch (error) {
+        statusDiv.innerHTML = "<p class='error'>❌ Backend not reachable. Is FastAPI running?</p>";
+    }
+}
+</script>
+
+</body>
+</html>
