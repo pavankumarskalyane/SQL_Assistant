@@ -3,7 +3,8 @@
 from langchain_community.vectorstores import Chroma
 from langchain_community.embeddings import SentenceTransformerEmbeddings
 
-CHROMA_PATH = "./chroma_db"
+CHROMA_PATH = "chroma"
+
 
 class SQLRetriever:
     def __init__(self):
